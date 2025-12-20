@@ -48,7 +48,7 @@
         /* Navigation */
         nav {
             
-            background: hsla(0, 0%, 100%, 0.949);
+            background: hwb(172 0% 6% / 0.966);
             padding: 15px 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
@@ -94,7 +94,7 @@
         }
 
         .nav-links a {
-            color: #333;
+            color: #ffffff;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
@@ -173,10 +173,10 @@
         }
 
         .service-card {
-            background: rgb(6, 7, 0);
+            background: rgb(0, 7, 7);
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgb(16, 3, 134);
             transition: transform 0.3s ease;
         }
 
@@ -192,7 +192,7 @@
 
         .service-card ul {
             list-style: none;
-            color: #666;
+            color: #fdf4f4;
         }
 
         .service-card ul li {
@@ -313,10 +313,10 @@
         }
 
         .testimonial-card {
-            background: white;
+            background: rgb(6, 2, 70);
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgb(238, 234, 234);
             position: relative;
         }
 
@@ -326,12 +326,12 @@
             top: -10px;
             left: 20px;
             font-size: 80px;
-            color: #667eea;
+            color: #f4f4f5;
             opacity: 0.3;
         }
 
         .testimonial-text {
-            color: #666;
+            color: #f8f8f8;
             font-style: italic;
             margin-bottom: 20px;
             line-height: 1.6;
@@ -358,12 +358,12 @@
         }
 
         .author-info h4 {
-            color: #333;
+            color: #d1a209;
             margin-bottom: 5px;
         }
 
         .author-info p {
-            color: #999;
+            color: #f0e114;
             font-size: 0.9em;
         }
 
@@ -391,7 +391,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
-            background: rgb(121, 248, 18);
+            background: rgb(206, 248, 18);
             border-radius: 20px;
             padding: 40px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
@@ -569,9 +569,9 @@
                 top: 70px;
                 left: 0;
                 right: 0;
-                background: white;
+                background: rgb(176, 179, 0);
                 padding: 20px;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 10px rgb(158, 248, 13);
             }
 
             .nav-links.active {
@@ -593,30 +593,32 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
-        <div class="container">
+       <div class="container">
             <div class="logo-container">
                 <img src="Images/Excel_Logo.png" alt="Excel Technology Logo" class="logo-img">
                 <div class="logo">Excel Technology </div>
-                <p class="multicolor-text"><marquee>Weclome to Excel Technology</marquee></p>
+                <!--<p class="multicolor-text"><marquee>Weclome to Excel Technology</marquee></p>-->
             </div>
             <div class="mobile-menu" onclick="toggleMenu()">☰</div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#industries">Industries</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#about">About</a></li>
+                <li class="menu-button"><a href="#home">Home</a></li>
+                <li class="menu-button"><a href="#services">Services</a></li>
+                <li class="menu-button"><a href="#industries">Industries</a></li>
+                <li class="menu-button"><a href="#pricing">Pricing</a></li>
+                <li class="menu-button"><a href="#testimonials">Testimonials</a></li>
+                <li class="menu-button"><a href="#about">About</a></li>
                 <!--<li><a href="#contact">Contact</a></li>-->
             </ul>
         </div>
-    </nav>
+    </body>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <img src="Images/Excel_Logo.png" alt="Excel Technology" class="hero-logo" class="animated-logo">
         <h1 class="multicolor-text">Excel Technology</h1>
+        <div class="fire-text-container">
+            <span class="aftershock-fire-text">Aftershock</span>
+        </div>
         <p class="tagline">Power BI & Excel Automation Solutions for Business Excellence</p>
         <p class="location"> Located: 📍 Iyyappanthangal, Chennai</p>
         <p class="Call"> 📞 Call / WhatsApp: +91 9095869474 </p> 
@@ -747,7 +749,9 @@
                         <li>✓ Data integration</li>
                         <li>✓ Life Time support</li>
                     </ul>
-                    <button class="btn" onclick="location.href='#contact'">Get Started</button>
+                    <button class="btn" onclick="window.open('https://razorpay.me/@Vanithavijayenterprises'),_blank">
+                        Get Started
+                    </button>
                 </div>
 
                 <div class="pricing-card">
@@ -760,7 +764,9 @@
                         <li>✓ Interactive features</li>
                         <li>✓ Life Time support</li>
                     </ul>
-                    <button class="btn" onclick="location.href='#contact'">Get Started</button>
+                    <button class="btn" onclick="window.open('https://razorpay.me/@Vanithavijayenterprises'),_blank">
+                        Get Started
+                    </button>
                 </div>
 
                 <div class="pricing-card">
@@ -773,7 +779,9 @@
                         <li>✓ Custom templates</li>
                         <li>✓ Life Time support</li>
                     </ul>
-                    <button class="btn" onclick="location.href='#contact'">Get Started</button>
+                    <button class="btn" onclick="window.open('https://razorpay.me/@Vanithavijayenterprises'),_blank">
+                        Get Started
+                    </button>
                 </div>
 
                 <div class="pricing-card">
@@ -786,7 +794,9 @@
                         <li>✓ Data refresh</li>
                         <li>✓ Unlimited changes</li>
                     </ul>
-                    <button class="btn" onclick="location.href='#contact'">Get Started</button>
+                    <button class="btn" onclick="window.open('https://razorpay.me/@Vanithavijayenterprises'),_blank">
+                        Get Started
+                    </button>
                 </div>
             </div>
         </div>
@@ -901,29 +911,161 @@
                     💬
                     </a>
                     -->
+                    <style>
+                        .btn-gradient {
+                          background-image: linear-gradient(to right, #CD0CF3 0%, #2af598 100%);
+                          border: none;
+                          color: white;
+                          padding: 15px 40px;
+                          text-align: center;
+                          font-size: 25px;
+                          font-weight: bold;
+                          border-radius: 50px; /* Rounded pill shape */
+                          cursor: pointer;
+                          transition: 0.3s ease; /* Smooth hover transition */
+                          box-shadow: 0 4px 15px rgba(205, 12, 243, 0.3);
+                        }
+                      
+                        .btn-gradient:hover {
+                          transform: translateY(-3px); /* Lifts up */
+                          box-shadow: 0 6px 20px rgba(205, 12, 243, 0.5);
+                          filter: brightness(1.1);
+                        }
+                      </style>
 
+
+
+
+
+<style>
+    .classic-textarea {
+        width: 100%;
+        max-width: 500px;
+        min-height: 100px;      /* Starting height */
+        padding: 12px 15px;
+        font-size: 18px;
+        font-family: inherit;
+        border: 2px solid #ccc;
+        border-radius: 6px;
+        outline: none;
+        transition: border-color 0.3s;
+        box-sizing: border-box;
+        
+        /* 2025 Feature: Auto-grows with content */
+        field-sizing: content;
+        resize: vertical;       /* Still allows manual vertical resizing if needed */
+    }
+
+    .classic-textarea:focus {
+        border-color: #CD0CF3;  /* Matches your previous purple theme */
+        box-shadow: 0 0 5px rgba(205, 12, 243, 0.2);
+    }
+</style>
+
+
+                      
                     <h3>Enquery</h3>
 
                     <form
                     action="https://formspree.io/f/mpqazlyr"
                     method="POST"
                   >
-                    <label style="color: rgb(92, 3, 3);"style="text-align:center;">
+                  <div class="testimonial-card">
+                    <label style="color: rgb(255, 254, 254);text-align:center; font-size: 25px;">
                       Your Email:
-                      <input type="email" name="email">
+                      <input type="email" name="email" 
+                      style="width: 300px; padding: 10px; font-size: 18px; border: 1px solid #999; border-radius: 5px;">
                     </label>
-                    <label style="color: rgb(68, 92, 3);"style="text-align:center;">
+                    <label style="color: rgb(201, 252, 19);text-align:center;font-size: 25px;">
                       Mobile Number:
-                      <textarea name="Mobile"></textarea>
+                      <textarea name="Mobile" style="width: 350px; padding: 7px; font-size: 15px; border: 1px solid #999; border-radius: 3px;"></textarea>     
                     </label>
-                    <label style="color: rgb(56, 3, 66);"style="text-align:center;">
+                    <label style="color: rgb(205, 12, 243);text-align:center;font-size: 25px;">
                         Your message:
-                        <textarea name="message"></textarea>
+                        <textarea name="message" style="width: 300px; padding: 10px; font-size: 18px; border: 1px solid #999; border-radius: 5px;"></textarea>
                       </label>
                     <!-- your other form fields go here -->
-                    <button type="submit">Send</button>
+                    <button class="btn-gradient" type="submit">Send</button>
                   </form>
                 </section>               
-
+            </div class="testimonial-card">
                         <li style="color: rgb(249, 249, 252);"style="text-align:left;"><marquee> All Rights Reserved @ Excel Technology - +91-9095869474</marquee></li>
+
+                        <style>
+                            /* Container fixed to the top of the screen */
+                            .top-marquee-container {
+                                position: fixed;         /* Keeps it at the top even when you scroll */
+                                top: 0;
+                                left: 0;
+                                width: 100%;             /* Spans the full width of the screen */
+                                background: #000;        /* Black background makes yellow text pop */
+                                overflow: hidden;
+                                white-space: nowrap;
+                                z-index: 9999;           /* Ensures it stays above all other content */
+                                padding: 10px 0;
+                            }
+                        
+                            /* Scrolling yellow text styling */
+                            .yellow-scrolling-text {
+                                display: inline-block;
+                                font-size: 24px;
+                                font-weight: bold;
+                                color: #ffff00;          /* Solid yellow color */
+                                padding-left: 100%;      /* Start completely off-screen right */
+                                animation: marquee-top 15s linear infinite;
+                                font-family: sans-serif;
+                            }
+                        
+                            /* Animation definition */
+                            @keyframes marquee-top {
+                                0% { transform: translateX(0); }
+                                100% { transform: translateX(-100%); }
+                            }
+                            
+                            /* Optional: Add margin to body so the top of your page isn't hidden */
+                            body {
+                                margin-top: 50px; 
+                            }
+                        </style>
+                        
+                        <div class="top-marquee-container">
+                            <div class="yellow-scrolling-text">Welcome to Excel Technology</div>
+                        </div>
+
+<!-- Menu Button Design-->
+                        <style>
+                            .menu-button {
+                                /* Layout and Basic Style */
+                                display: inline-block;
+                                padding: 10px 25px;
+                                text-align: center;
+                                text-decoration: none; /* Removes the default link underline */
+                                border-radius: 20px;   /* Creates the rounded capsule shape */
+                                cursor: pointer;
+                                font-family: sans-serif;
+                                font-weight: bold;
+                                font-size: 18px;
+                                transition: all 0.3s ease;
+                        
+                                /* Visual Effects: Glossy 3D Look */
+                                background: linear-gradient(to bottom, #00CFFF 0%, #0076FF 100%); /* Blue Gradient */
+                                color: white;
+                                border: 1px solid #0056b3;
+                                box-shadow: 
+                                    0 4px 6px rgba(0, 0, 0, 0.2),  /* Outer shadow for depth */
+                                    inset 0 1px 0 rgba(255, 255, 255, 0.4), /* Inner highlight for gloss */
+                                    inset 0 -1px 0 rgba(0, 0, 0, 0.2); /* Inner shadow */
+                            }
+                        
+                            /* Hover effect: Makes it look like the button is pressed */
+                            .menu-button:hover {
+                                background: linear-gradient(to bottom, #0076FF 0%, #00CFFF 100%); /* Invert gradient */
+                                box-shadow: 
+                                    0 2px 4px rgba(0, 0, 0, 0.2), 
+                                    inset 0 1px 0 rgba(0, 0, 0, 0.1);
+                                transform: translateY(1px); /* Moves down slightly */
+                            }
+                        </style>
+
+<!-- Attractive text for Excel Technlogy-->
 
