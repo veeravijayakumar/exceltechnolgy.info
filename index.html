@@ -320,6 +320,22 @@
             position: relative;
         }
 
+
+             .testimonial-cardone {
+            background: rgb(6, 2, 70);
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgb(238, 234, 234);
+            position: relative;
+        }
+
+        .testimonial-textone {
+            color: #f8f8f8;
+            font-style: italic;
+            margin-bottom: 5%;
+            line-height: 1;
+        }
+
         .testimonial-card::before {
             content: '"';
             position: absolute;
@@ -386,15 +402,15 @@
 
         /* Contact Section */
         .contact-container {
-            max-width: 1200px;
+            max-width: px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 15px;
             background: rgb(206, 248, 18);
             border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .contact-info h2 {
@@ -617,9 +633,8 @@
         <img src="Images/Excel_Logo.png" alt="Excel Technology" class="hero-logo" class="animated-logo">
         <h1 class="multicolor-text">Excel Technology</h1>
         <div class="fire-text-container">
-            <span class="aftershock-fire-text">Aftershock</span>
         </div>
-        <p class="tagline">Power BI & Excel Automation Solutions for Business Excellence</p>
+        <p class="tagline">Power BI & Excel Automation and Website Development for Business Excellence</p>
         <p class="location"> Located: 📍 Iyyappanthangal, Chennai</p>
         <p class="Call"> 📞 Call / WhatsApp: +91 9095869474 </p> 
         <a href="https://wa.me/919095869474"
@@ -637,8 +652,26 @@
         💬
         </a>
         <p class="email">  📧 Email: info@exceltechnolgy.info</p>
+
+                <div class="testimonial-cardone">
+                    <p class="testimonial-text" style="font-size:large;color: rgb(81, 255, 0);"><u>Short Notifications:</u></p>
+                    <p class="testimonial-text" style="font-size:x-large;color: yellow;">We are provide lowest price Website Starting from 3,500/</p>
+                    <!-- <p class="testimonial-text" style="font-size:larger;color: rgb(247, 247, 247);">Hurry up!!!!</p> -->
+                    <!-- !-- <marquee behavior="visualize" scrollamount="5">
+                    This text is jumping horizontally!
+                    </marquee>  -->
+
+                    <!-- <div class="testimonial-author"> -->
+                        <!-- <div class="author-avatar">MV</div>
+                        <div class="author-info"> -->
+                            <!-- <h4>Murugan V.</h4>
+                            <p>Rice Mill Owner</p> -->
+                        </div>
+                    </div>
+                </div>
         <!--<p style="margin-top: 20px; font-size: 1.1em;">Founded by <strong>Vijayakumar V</strong></p> -->
     </section>
+
 
     <!-- Services Section -->
     <section id="services">
@@ -989,8 +1022,6 @@
                   </form>
                 </section>               
             </div class="testimonial-card">
-                        <li style="color: rgb(249, 249, 252);"style="text-align:left;"><marquee> All Rights Reserved @ Excel Technology - +91-9095869474</marquee></li>
-
                         <style>
                             /* Container fixed to the top of the screen */
                             .top-marquee-container {
@@ -1070,3 +1101,88 @@
 
 <!-- Attractive text for Excel Technlogy-->
 
+<style>
+  .jumping-text span {
+    position: relative; /* Needed for positioning the jump */
+    display: inline-block; /* Allows each letter to be a separate block */
+    animation: bounce 0.6s ease-in-out infinite alternate; /* Apply the animation */
+    font-size: 2rem;
+  }
+
+  /* Stagger the animation delay for each letter */
+  .jumping-text span:nth-child(1) { animation-delay: 0.1s; }
+  .jumping-text span:nth-child(2) { animation-delay: 0.2s; }
+  .jumping-text span:nth-child(3) { animation-delay: 0.3s; }
+  .jumping-text span:nth-child(4) { animation-delay: 0.4s; }
+  .jumping-text span:nth-child(5) { animation-delay: 0.5s; }
+  .jumping-text span:nth-child(6) { animation-delay: 0.6s; }
+  .jumping-text span:nth-child(7) { animation-delay: 0.7s; }
+
+  /* Define the 'bounce' animation */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0); /* Start and end position (original) */
+    }
+    50% {
+      transform: translateY(-20px); /* Move 20px up at the midpoint */
+    }
+  }
+</style>
+
+
+<style>
+  .jumping-text span {
+    position: relative; /* Needed for positioning the jump */
+    display: inline-block; /* Allows each letter to be a separate block */
+    animation: bounce 0.6s ease-in-out infinite alternate; /* Apply the animation */
+    font-size: 2rem;
+  }
+
+  /* Stagger the animation delay for each letter */
+  .jumping-text span:nth-child(1) { animation-delay: 0.1s; }
+  .jumping-text span:nth-child(2) { animation-delay: 0.2s; }
+  .jumping-text span:nth-child(3) { animation-delay: 0.3s; }
+  .jumping-text span:nth-child(4) { animation-delay: 0.4s; }
+  .jumping-text span:nth-child(5) { animation-delay: 0.5s; }
+  .jumping-text span:nth-child(6) { animation-delay: 0.6s; }
+  .jumping-text span:nth-child(7) { animation-delay: 0.7s; }
+
+  /* Define the 'bounce' animation */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0); /* Start and end position (original) */
+    }
+    50% {
+      transform: translateY(-20px); /* Move 20px up at the midpoint */
+    }
+  }
+</style>
+            </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container contact-container">
+            <div class="contact-info">
+                <h2>Ongoing projects are....</h2>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>International Journal and Research & Educational studies</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span><span>Eductation Website</span>
+                    </div>
+                        <!-- <div class="contact-item"> -->
+                        <i class="fas fa-envelope"></i>
+                        <span style="position: relative;color: #024205;">Will publish the website Sooner..</span>
+                    </div>
+                    <li style="color: rgb(9, 9, 168);"style="text-align:left;"><marquee> All Rights Reserved @ Excel Technology - +91-9095869474</marquee></li>
+                </div>
+            </div>
+        </div>
+    </section> 
