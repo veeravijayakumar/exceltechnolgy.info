@@ -5,20 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excel Technology - Power BI & Excel Automation Services</title>
     <style>
+        /* --- RESET & VARIABLES --- */
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #21c358;
+            --dark-bg: #0b0d17;
+            --card-bg: rgba(20, 25, 40, 0.7);
+            --text-light: #ffffff;
+            --text-gray: #b0b0b0;
+            --tech-grid: rgba(102, 126, 234, 0.07);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-            min-height: 100vh;
-            position: relative;
+            /* Tech Background: Dark Base + Grid Pattern */
+            background-color: var(--dark-bg);
+            background-image: 
+                linear-gradient(var(--tech-grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--tech-grid) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: var(--text-light);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
+        /* Ambient background glow animation */
         body::before {
             content: '';
             position: fixed;
@@ -26,40 +48,30 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(74, 144, 226, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(138, 43, 226, 0.2) 0%, transparent 50%);
-            animation: gradientShift 15s ease infinite;
+            background: radial-gradient(circle at 50% 50%, rgba(118, 75, 162, 0.15) 0%, transparent 70%);
             z-index: -1;
+            pointer-events: none;
         }
 
-        @keyframes gradientShift {
-            0%, 100% {
-                opacity: 1;
-                transform: scale(1) rotate(0deg);
-            }
-            50% {
-                opacity: 0.8;
-                transform: scale(1.1) rotate(5deg);
-            }
-        }
-
-        /* Navigation */
-        nav {
-            
-            background: hwb(172 0% 6% / 0.966);
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav .container {
+        .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(11, 13, 23, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -72,604 +84,473 @@
         }
 
         .logo-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            border-radius: 8px; /* Slight tech edge */
             object-fit: cover;
+            border: 2px solid var(--primary);
         }
 
         .logo {
             font-size: 1.5em;
-            font-weight: bold;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #00CFFF 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 20px;
             list-style: none;
         }
 
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
+        /* Tech Style Menu Buttons */
+        .nav-links li {
+            background: rgba(255,255,255,0.05);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .nav-links a:hover {
-            color: #667eea;
+        .nav-links li:hover {
+            background: rgba(102, 126, 234, 0.2);
+            border-color: var(--primary);
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 20px;
+            display: block;
+            font-size: 0.95rem;
         }
 
         .mobile-menu {
             display: none;
-            font-size: 24px;
+            font-size: 28px;
             cursor: pointer;
-            color: #ff05de;
+            color: var(--primary);
         }
 
-        /* Hero Section */
-        .hero {
+        /* --- HERO SECTION (Canvas Animation) --- */
+        .hero-section {
+            position: relative;
+            min-height: 80vh; /* Only Hero needs height, others auto */
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            color: rgb(255, 255, 255);
-            padding: 80px 20px;
-            animation: fadeInDown 0.8s ease;
-        }
-
-        .hero-logo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 0 auto 30px;
-            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.5);
-        }
-
-        .hero h1 {
-            font-size: 3em;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero .tagline {
-            font-size: 1.3em;
-            margin-bottom: 10px;
-            opacity: 0.9;
-        }
-
-        .hero .location {
-            font-size: 1em;
-            opacity: 0.8;
-            margin-top: 10px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Page Sections */
-        section {
-            min-height: 100vh;
             padding: 60px 20px;
+            overflow: hidden;
+        }
+
+        canvas#gridCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            /* Tech Text Glow */
+            color: #fff;
+            text-shadow: 0 0 15px rgba(0, 207, 255, 0.5);
+        }
+
+        .hero-subtitle {
+            color: #00CFFF;
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 5px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .hero-details p {
+            font-size: 1.1rem;
+            margin: 5px 0;
+            color: var(--text-gray);
+        }
+
+        .hero-details i { color: var(--accent); margin-right: 5px; }
+
+        /* Marquee Replacement (CSS Animation) */
+        .notification-bar {
+            margin-top: 40px;
+            background: rgba(33, 195, 88, 0.15);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 10px 0;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .notification-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll-left 15s linear infinite;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* --- SECTIONS GENERAL --- */
+        section {
+            /* Removed min-height: 100vh to fix spacing gaps. 
+               Now sections grow with content. */
+            padding: 80px 20px; 
+            position: relative;
+        }
+
+        /* Alternate section background slightly to differentiate */
+        section:nth-of-type(even) {
+            background: rgba(0,0,0,0.2);
         }
 
         .section-title {
             text-align: center;
-            color: rgb(24, 236, 42);
             font-size: 2.5em;
             margin-bottom: 50px;
+            color: white;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
-        /* Services Section */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- CARDS (Glassmorphism Tech Style) --- */
+        .service-card, .benefit-card, .pricing-card, .testimonial-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .service-card:hover, .benefit-card:hover, .pricing-card:hover, .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3), 0 0 15px rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.4);
+        }
+
+        /* --- SERVICES GRID --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .service-card {
-            background: rgb(0, 7, 7);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 60px rgb(16, 3, 134);
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
         }
 
         .service-card h3 {
-            color: #667eea;
-            font-size: 1.5em;
-            margin-bottom: 15px;
+            color: #00CFFF;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
         }
 
         .service-card ul {
             list-style: none;
-            color: #fdf4f4;
         }
 
-        .service-card ul li {
+        .service-card li {
             padding: 8px 0;
-            border-bottom: 1px solid #eee;
+            color: #ddd;
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
         }
-
-        .service-card ul li:before {
-            content: "✓ ";
-            color: #667eea;
-            font-weight: bold;
+        
+        .service-card li:before {
+            content: "▹";
+            color: var(--primary);
             margin-right: 10px;
         }
 
-        /* Industries Section */
+        /* --- INDUSTRIES --- */
         .industries-container {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
             justify-content: center;
-            margin-top: 30px;
+            margin-bottom: 50px;
         }
 
         .industry-tag {
-            background: white;
-            color: #667eea;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-weight: 500;
+            transition: all 0.3s;
         }
 
         .industry-tag:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            background: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(102, 126, 234, 0.5);
         }
 
-        /* Benefits Section */
+        /* --- BENEFITS --- */
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 25px;
-            margin-top: 40px;
-        }
-
-        .benefit-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            padding: 25px;
-            color: white;
             text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
         }
 
         .benefit-icon {
-            font-size: 3em;
+            font-size: 2.5em;
             margin-bottom: 15px;
+            color: var(--accent);
         }
 
-        /* Pricing Section */
+        /* --- PRICING --- */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 40px;
         }
 
         .pricing-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
             text-align: center;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
+            background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
         }
 
         .pricing-card h3 {
-            color: #667eea;
-            font-size: 1.8em;
-            margin-bottom: 20px;
+            color: #00CFFF;
+            margin-bottom: 15px;
         }
 
         .price {
-            font-size: 2em;
-            color: #333;
+            font-size: 2.2em;
+            color: white;
             font-weight: bold;
             margin: 20px 0;
-        }
-
-        .pricing-features {
-            list-style: none;
-            color: #666;
-            margin: 20px 0;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
         }
 
         .pricing-features li {
             padding: 10px 0;
+            color: #bbb;
+        }
+        
+        /* Highlight 'Get Started' buttons */
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 35px;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
 
-        /* Testimonials Section */
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        /* --- TESTIMONIALS --- */
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 40px;
-        }
-
-        .testimonial-card {
-            background: rgb(6, 2, 70);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 60px rgb(238, 234, 234);
-            position: relative;
-        }
-
-
-             .testimonial-cardone {
-            background: rgb(6, 2, 70);
-            border-radius: 5px;
-            padding: 10px;
-            box-shadow: 0 10px 30px rgb(238, 234, 234);
-            position: relative;
-        }
-
-        .testimonial-textone {
-            color: #f8f8f8;
-            font-style: italic;
-            margin-bottom: 5%;
-            line-height: 1;
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            font-size: 80px;
-            color: #f4f4f5;
-            opacity: 0.3;
         }
 
         .testimonial-text {
-            color: #f8f8f8;
+            color: #ddd;
             font-style: italic;
             margin-bottom: 20px;
-            line-height: 1.6;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: "“";
+            font-size: 3em;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+            top: -20px;
+            left: -10px;
         }
 
         .testimonial-author {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-top: 20px;
         }
 
         .author-avatar {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
             font-weight: bold;
-            font-size: 20px;
+            color: white;
         }
 
-        .author-info h4 {
-            color: #d1a209;
-            margin-bottom: 5px;
-        }
-
-        .author-info p {
-            color: #f0e114;
-            font-size: 0.9em;
-        }
-
-        /* About Section */
+        /* --- ABOUT --- */
         .about-content {
-            background: white;
-            border-radius: 20px;
+            background: var(--card-bg);
+            border-radius: 16px;
             padding: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            color: #666;
-            line-height: 1.8;
-            font-size: 1.1em;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .about-content h3 {
-            color: #667eea;
-            margin: 30px 0 15px 0;
-            font-size: 1.5em;
+            color: var(--primary);
+            margin-top: 25px;
+            margin-bottom: 15px;
         }
 
-        /* Contact Section */
-        .contact-container {
-            max-width: px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            background: rgb(206, 248, 18);
-            border-radius: 20px;
-            padding: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        .about-content ul {
+            list-style: none;
+        }
+        
+        .about-content li::before {
+            content: "✓";
+            color: var(--accent);
+            margin-right: 10px;
         }
 
-        .contact-info h2 {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 2.5em;
-            margin-bottom: 30px;
+        /* --- FOOTER --- */
+        footer {
+            background: rgba(0,0,0,0.4);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        .contact-details {
-            margin-bottom: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            font-size: 1.1em;
-        }
-
-        .contact-item i {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        /* --- FLOATING WHATSAPP --- */
+        .float-wa {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            margin-right: 15px;
-            font-size: 18px;
-        }
-
-        .contact-form {
-            background: #f8f9fa;
-            padding: 40px;
-            border-radius: 15px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
             text-decoration: none;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 2000;
+            transition: transform 0.3s;
         }
 
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+        .float-wa:hover {
+            transform: scale(1.1);
         }
 
-        .social-buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .social-btn {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            transition: transform 0.3s ease;
-        }
-
-        .whatsapp-btn {
-            background: #25D366;
-        }
-
-        .email-btn {
-            background: #EA4335;
-        }
-
-        .phone-btn {
-            background: #4285F4;
-        }
-
-        .social-btn:hover {
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        .footer {
-            background: rgba(0, 0, 0, 0.3);
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-        }
-
-        .footer p {
-            margin: 5px 0;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2em;
-            }
-            
+            .hero-title { font-size: 2.2em; }
             .nav-links {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 70px;
+                top: 100%;
                 left: 0;
-                right: 0;
-                background: rgb(176, 179, 0);
+                width: 100%;
+                background: rgba(11, 13, 23, 0.98);
                 padding: 20px;
-                box-shadow: 0 4px 10px rgb(158, 248, 13);
+                border-bottom: 1px solid rgba(255,255,255,0.1);
             }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .services-grid,
-            .pricing-grid,
-            .testimonials-grid,
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
+            .nav-links.active { display: flex; }
+            .mobile-menu { display: block; }
+            .nav-links li { text-align: center; margin-bottom: 10px; }
         }
     </style>
 </head>
 <body>
+
     <!-- Navigation -->
-       <div class="container">
+    <nav>
+        <div class="container">
             <div class="logo-container">
-                <img src="Images/Excel_Logo.png" alt="Excel Technology Logo" class="logo-img">
-                <div class="logo">Excel Technology </div>
-                <!--<p class="multicolor-text"><marquee>Weclome to Excel Technology</marquee></p>-->
+                <!-- Using a generic placeholder icon styled with CSS -->
+                 <img src="Images/Excel_Logo.png" alt="Excel Technology Logo" class="logo-img" style="width:60px;height:80px;">
+                <div class="logo">Excel Technology</div>
             </div>
             <div class="mobile-menu" onclick="toggleMenu()">☰</div>
             <ul class="nav-links" id="navLinks">
-                <li class="menu-button"><a href="#home">Home</a></li>
-                <li class="menu-button"><a href="#services">Services</a></li>
-                <li class="menu-button"><a href="#industries">Industries</a></li>
-                <li class="menu-button"><a href="#pricing">Pricing</a></li>
-                <li class="menu-button"><a href="#testimonials">Testimonials</a></li>
-                <li class="menu-button"><a href="#about">About</a></li>
-                <!--<li><a href="#contact">Contact</a></li>-->
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#industries">Industries</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#about">About</a></li>
             </ul>
         </div>
-    </body>
+    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <img src="Images/Excel_Logo.png" alt="Excel Technology" class="hero-logo" class="animated-logo">
-        <h1 class="multicolor-text">Excel Technology</h1>
-        <div class="fire-text-container">
-        </div>
-        <p class="tagline">Power BI & Excel Automation and Website Development for Business Excellence</p>
-        <p class="location"> Located: 📍 Iyyappanthangal, Chennai</p>
-        <p class="Call"> 📞 Call / WhatsApp: +91 9095869474 </p> 
-        <a href="https://wa.me/919095869474"
-        target="Hi I'm looking for Power BI"
-        style="
-            position:fixed;
-            bottom:20px;
-            right:20px;
-            background:#25D366;
-            color:white;
-            padding:15px;
-            border-radius:50%;
-            text-decoration:none;
-            font-size:20px;">
-        💬
-        </a>
-        <p class="email">  📧 Email: info@exceltechnolgy.info</p>
+    <!-- Hero Section with Canvas Animation -->
+    <section id="home" class="hero-section">
+        <canvas id="gridCanvas"></canvas>
+        <div class="container hero-content">
+            <h1 class="hero-title">Excel Technology</h1>
+            <div class="hero-subtitle">DATA PROCESSING INTELLIGENCE</div>
+            
+            <div class="hero-details">
+                <p style="color: yellow;">Power BI & Excel Automation for Business Excellence</p>
+                <p style="color: yellow;">📍 Iyyappanthangal, Chennai | 📞 +91 9095869474</p>
+                <p style="color: yellow;">📧 info@exceltechnolgy.info</p>
+            </div>
 
-                <div class="testimonial-cardone">
-                    <p class="testimonial-text" style="font-size:large;color: rgb(81, 255, 0);"><u>Short Notifications:</u></p>
-                    <p class="testimonial-text" style="font-size:x-large;color: yellow;">We are provide lowest price Website Starting from 3,500/</p>
-                    <!-- <p class="testimonial-text" style="font-size:larger;color: rgb(247, 247, 247);">Hurry up!!!!</p> -->
-                    <!-- !-- <marquee behavior="visualize" scrollamount="5">
-                    This text is jumping horizontally!
-                    </marquee>  -->
-
-                    <!-- <div class="testimonial-author"> -->
-                        <!-- <div class="author-avatar">MV</div>
-                        <div class="author-info"> -->
-                            <!-- <h4>Murugan V.</h4>
-                            <p>Rice Mill Owner</p> -->
-                        </div>
-                    </div>
+            <!-- Tech Scrolling Notification -->
+            <div class="notification-bar">
+                <div class="notification-text" style="color: yellow;">
+                    Hurry Up! 🔥 We provide the lowest price Websites starting from 3,500/ . Special offer on Power BI Dashboards this month!
                 </div>
-        <!--<p style="margin-top: 20px; font-size: 1.1em;">Founded by <strong>Vijayakumar V</strong></p> -->
+            </div>
+        </div>
     </section>
 
 
@@ -677,7 +558,6 @@
     <section id="services">
         <div class="container">
             <h2 class="section-title">Our Services</h2>
-            
             <div class="services-grid">
                 <div class="service-card">
                     <h3>📊 Dashboard Development</h3>
@@ -689,7 +569,6 @@
                         <li>HR Dashboards</li>
                     </ul>
                 </div>
-
                 <div class="service-card">
                     <h3>📈 Excel Automation</h3>
                     <ul>
@@ -699,7 +578,6 @@
                         <li>Custom Excel Solutions</li>
                     </ul>
                 </div>
-
                 <div class="service-card">
                     <h3>🔧 Data Services</h3>
                     <ul>
@@ -730,7 +608,7 @@
                 <div class="industry-tag">🏪 Small Businesses</div>
             </div>
 
-            <h2 class="section-title" style="margin-top: 80px;">Why Choose Our Team</h2>
+            <h2 class="section-title">Why Choose Our Team</h2>
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon">⚡</div>
@@ -738,7 +616,6 @@
                     <p>Fast turnaround times for your projects</p>
                 </div>
                 <div class="benefit-card">
-                    <div class="benefit-icon">📱</div>
                     <div class="benefit-icon">🎨</div>
                     <h3>Dashboard Samples</h3>
                     <p>View examples before you decide</p>
@@ -757,7 +634,7 @@
                     <div class="benefit-icon">🗣️</div>
                     <h3>Tamil & English Support</h3>
                     <p>Communicate in your preferred language</p>
-                 </div>
+                </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">✅</div>
                     <h3>Free Demo Available</h3>
@@ -771,7 +648,6 @@
     <section id="pricing">
         <div class="container">
             <h2 class="section-title">Pricing Plans</h2>
-            
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <h3>One-Page Dashboard</h3>
@@ -782,11 +658,8 @@
                         <li>✓ Data integration</li>
                         <li>✓ Life Time support</li>
                     </ul>
-                    <button class="btn" onclick="window.open('https://razorpay.me/@Vanithavijayenterprises'),_blank">
-                        Get Started
-                    </button>
+                    <button class="btn" onclick="window.open('https://razorpay.me/@Vanithavijayenterprises'),_blank">Get Started</button>
                 </div>
-
                 <div class="pricing-card">
                     <h3>Advanced Dashboard</h3>
                     <div class="price">₹6,000 - ₹12,000</div>
@@ -797,11 +670,8 @@
                         <li>✓ Interactive features</li>
                         <li>✓ Life Time support</li>
                     </ul>
-                    <button class="btn" onclick="window.open('https://razorpay.me/@Vanithavijayenterprises'),_blank">
-                        Get Started
-                    </button>
+                    <button class="btn" onclick="window.open('https://razorpay.me/@Vanithavijayenterprises'),_blank">Get Started</button>
                 </div>
-
                 <div class="pricing-card">
                     <h3>Excel Automation</h3>
                     <div class="price">₹1,500 - ₹6,000</div>
@@ -812,11 +682,8 @@
                         <li>✓ Custom templates</li>
                         <li>✓ Life Time support</li>
                     </ul>
-                    <button class="btn" onclick="window.open('https://razorpay.me/@Vanithavijayenterprises'),_blank">
-                        Get Started
-                    </button>
+                    <button class="btn" onclick="window.open('https://razorpay.me/@Vanithavijayenterprises'),_blank">Get Started</button>
                 </div>
-
                 <div class="pricing-card">
                     <h3>Monthly Support</h3>
                     <div class="price">₹3,000 - ₹10,000</div>
@@ -827,9 +694,7 @@
                         <li>✓ Data refresh</li>
                         <li>✓ Unlimited changes</li>
                     </ul>
-                    <button class="btn" onclick="window.open('https://razorpay.me/@Vanithavijayenterprises'),_blank">
-                        Get Started
-                    </button>
+                    <button class="btn" onclick="window.open('https://razorpay.me/@Vanithavijayenterprises'),_blank">Get Started</button>
                 </div>
             </div>
         </div>
@@ -839,71 +704,33 @@
     <section id="testimonials">
         <div class="container">
             <h2 class="section-title">What Our Clients Say</h2>
-            
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"Excel Technology transformed our sales tracking completely. The Power BI dashboard they created gives us real-time insights that helped increase our revenue by 25%."</p>
+                    <p class="testimonial-text">"Excel Technology transformed our sales tracking completely. The Power BI dashboard gives us real-time insights that helped increase our revenue."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">RS</div>
-                        <div class="author-info">
-                            <h4>Rajesh S.</h4>
-                            <p>Retail Store Owner</p>
-                        </div>
+                        <div class="author-info"><h4>Rajesh S.</h4><p>Retail Store Owner</p></div>
                     </div>
                 </div>
-
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"The Excel automation they provided saves us 10 hours every week. No more manual data entry! Highly recommend their services to any business."</p>
+                    <p class="testimonial-text">"The Excel automation saves us 10 hours every week. No more manual data entry! Highly recommend their services to any business."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">PK</div>
-                        <div class="author-info">
-                            <h4>Priya K.</h4>
-                            <p>Finance Manager</p>
-                        </div>
+                        <div class="author-info"><h4>Priya K.</h4><p>Finance Manager</p></div>
                     </div>
                 </div>
-
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"Very professional team! They understood our rice mill operations perfectly and created a dashboard that tracks everything from inventory to sales. Great value for money."</p>
+                    <p class="testimonial-text">"Very professional team! They understood our rice mill operations perfectly and created a dashboard that tracks everything."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">MV</div>
-                        <div class="author-info">
-                            <h4>Murugan V.</h4>
-                            <p>Rice Mill Owner</p>
-                        </div>
+                        <div class="author-info"><h4>Murugan V.</h4><p>Rice Mill Owner</p></div>
                     </div>
                 </div>
-
                 <div class="testimonial-card">
                     <p class="testimonial-text">"Quick delivery and excellent support in both Tamil and English. The dashboard helps us make faster decisions for our logistics business."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">SK</div>
-                        <div class="author-info">
-                            <h4>Senthil K.</h4>
-                            <p>Logistics Company</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Affordable pricing and custom solutions. They created exactly what we needed for our hospital's patient tracking system. Very satisfied with the service!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">DM</div>
-                        <div class="author-info">
-                            <h4>Dr. Meena</h4>
-                            <p>Hospital Administrator</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"The monthly support package is worth every rupee. They keep our dashboards updated and fix any issues immediately. Professional and reliable!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">AJ</div>
-                        <div class="author-info">
-                            <h4>Anand J.</h4>
-                            <p>Manufacturing Unit</p>
-                        </div>
+                        <div class="author-info"><h4>Senthil K.</h4><p>Logistics Company</p></div>
                     </div>
                 </div>
             </div>
@@ -917,272 +744,157 @@
             <div class="about-content">
                 <p>We build clear, simple dashboards and automated Excel tools that help business owners understand their numbers quickly. Based in Iyyappanthangal, we support all types of local businesses.</p>
                 <h3>What You Get</h3>
-                <ul style="list-style: none; padding: 0;">
-                    <li>✓ Smart dashboards that visualize your business data</li>
-                    <li>✓ Automated Excel reports that save time</li>
-                    <li>✓ Cleaner, well-structured data</li>
-                    <li>✓ Easy tracking of sales & expenses</li>
-                    <li>✓ Significant time savings on manual work</li>
-                    <li>✓ Clear view of business performance</li>
-                    <li>✓ Faster, data-driven decision-making</li>
+                <ul>
+                    <li>Smart dashboards that visualize your business data</li>
+                    <li>Automated Excel reports that save time</li>
+                    <li>Cleaner, well-structured data</li>
+                    <li>Easy tracking of sales & expenses</li>
+                    <li>Significant time savings on manual work</li>
                 </ul>
-                <h3>Our Approach</h3>
-                <p>We believe in making data analytics accessible to every business, regardless of size. Our solutions are designed to be user-friendly, practical, and cost-effective. We take the time to understand your business processes and create solutions that actually work for you.</p>
-
-                 <!---   <a href="https://wa.me/919095869474"
-                    target="_blank"
-                    style="
-                        position:fixed;
-                        bottom:20px;
-                        right:20px;
-                        background:#25D366;
-                        color:white;
-                        padding:15px;
-                        border-radius:50%;
-                        text-decoration:none;
-                        font-size:20px;">
-                    💬
-                    </a>
-                    -->
-                    <style>
-                        .btn-gradient {
-                          background-image: linear-gradient(to right, #CD0CF3 0%, #2af598 100%);
-                          border: none;
-                          color: white;
-                          padding: 15px 40px;
-                          text-align: center;
-                          font-size: 25px;
-                          font-weight: bold;
-                          border-radius: 50px; /* Rounded pill shape */
-                          cursor: pointer;
-                          transition: 0.3s ease; /* Smooth hover transition */
-                          box-shadow: 0 4px 15px rgba(205, 12, 243, 0.3);
-                        }
-                      
-                        .btn-gradient:hover {
-                          transform: translateY(-3px); /* Lifts up */
-                          box-shadow: 0 6px 20px rgba(205, 12, 243, 0.5);
-                          filter: brightness(1.1);
-                        }
-                      </style>
-
-
-
-
-
-<style>
-    .classic-textarea {
-        width: 100%;
-        max-width: 500px;
-        min-height: 100px;      /* Starting height */
-        padding: 12px 15px;
-        font-size: 18px;
-        font-family: inherit;
-        border: 2px solid #ccc;
-        border-radius: 6px;
-        outline: none;
-        transition: border-color 0.3s;
-        box-sizing: border-box;
-        
-        /* 2025 Feature: Auto-grows with content */
-        field-sizing: content;
-        resize: vertical;       /* Still allows manual vertical resizing if needed */
-    }
-
-    .classic-textarea:focus {
-        border-color: #CD0CF3;  /* Matches your previous purple theme */
-        box-shadow: 0 0 5px rgba(205, 12, 243, 0.2);
-    }
-</style>
-
-
-                      
-                    <h3>Enquery</h3>
-
-                    <form
-                    action="https://formspree.io/f/mpqazlyr"
-                    method="POST"
-                  >
-                  <div class="testimonial-card">
-                    <label style="color: rgb(255, 254, 254);text-align:center; font-size: 25px;">
-                      Your Email:
-                      <input type="email" name="email" 
-                      style="width: 300px; padding: 10px; font-size: 18px; border: 1px solid #999; border-radius: 5px;">
-                    </label>
-                    <label style="color: rgb(201, 252, 19);text-align:center;font-size: 25px;">
-                      Mobile Number:
-                      <textarea name="Mobile" style="width: 350px; padding: 7px; font-size: 15px; border: 1px solid #999; border-radius: 3px;"></textarea>     
-                    </label>
-                    <label style="color: rgb(205, 12, 243);text-align:center;font-size: 25px;">
-                        Your message:
-                        <textarea name="message" style="width: 300px; padding: 10px; font-size: 18px; border: 1px solid #999; border-radius: 5px;"></textarea>
-                      </label>
-                    <!-- your other form fields go here -->
-                    <button class="btn-gradient" type="submit">Send</button>
-                  </form>
-                </section>               
-            </div class="testimonial-card">
-                        <style>
-                            /* Container fixed to the top of the screen */
-                            .top-marquee-container {
-                                position: fixed;         /* Keeps it at the top even when you scroll */
-                                top: 0;
-                                left: 0;
-                                width: 100%;             /* Spans the full width of the screen */
-                                background: #000;        /* Black background makes yellow text pop */
-                                overflow: hidden;
-                                white-space: nowrap;
-                                z-index: 9999;           /* Ensures it stays above all other content */
-                                padding: 10px 0;
-                            }
-                        
-                            /* Scrolling yellow text styling */
-                            .yellow-scrolling-text {
-                                display: inline-block;
-                                font-size: 24px;
-                                font-weight: bold;
-                                color: #ffff00;          /* Solid yellow color */
-                                padding-left: 100%;      /* Start completely off-screen right */
-                                animation: marquee-top 15s linear infinite;
-                                font-family: sans-serif;
-                            }
-                        
-                            /* Animation definition */
-                            @keyframes marquee-top {
-                                0% { transform: translateX(0); }
-                                100% { transform: translateX(-100%); }
-                            }
-                            
-                            /* Optional: Add margin to body so the top of your page isn't hidden */
-                            body {
-                                margin-top: 50px; 
-                            }
-                        </style>
-                        <!--
-                        <div class="top-marquee-container">
-                            <div class="yellow-scrolling-text">Welcome to Excel Technology</div>
-                        </div>
-                        -->
-
-<!-- Menu Button Design-->
-                        <style>
-                            .menu-button {
-                                /* Layout and Basic Style */
-                                display: inline-block;
-                                padding: 10px 25px;
-                                text-align: center;
-                                text-decoration: none; /* Removes the default link underline */
-                                border-radius: 20px;   /* Creates the rounded capsule shape */
-                                cursor: pointer;
-                                font-family: sans-serif;
-                                font-weight: bold;
-                                font-size: 18px;
-                                transition: all 0.3s ease;
-                        
-                                /* Visual Effects: Glossy 3D Look */
-                                background: linear-gradient(to bottom, #00CFFF 0%, #0076FF 100%); /* Blue Gradient */
-                                color: white;
-                                border: 1px solid #0056b3;
-                                box-shadow: 
-                                    0 4px 6px rgba(0, 0, 0, 0.2),  /* Outer shadow for depth */
-                                    inset 0 1px 0 rgba(255, 255, 255, 0.4), /* Inner highlight for gloss */
-                                    inset 0 -1px 0 rgba(0, 0, 0, 0.2); /* Inner shadow */
-                            }
-                        
-                            /* Hover effect: Makes it look like the button is pressed */
-                            .menu-button:hover {
-                                background: linear-gradient(to bottom, #0076FF 0%, #00CFFF 100%); /* Invert gradient */
-                                box-shadow: 
-                                    0 2px 4px rgba(0, 0, 0, 0.2), 
-                                    inset 0 1px 0 rgba(0, 0, 0, 0.1);
-                                transform: translateY(1px); /* Moves down slightly */
-                            }
-                        </style>
-
-<!-- Attractive text for Excel Technlogy-->
-
-<style>
-  .jumping-text span {
-    position: relative; /* Needed for positioning the jump */
-    display: inline-block; /* Allows each letter to be a separate block */
-    animation: bounce 0.6s ease-in-out infinite alternate; /* Apply the animation */
-    font-size: 2rem;
-  }
-
-  /* Stagger the animation delay for each letter */
-  .jumping-text span:nth-child(1) { animation-delay: 0.1s; }
-  .jumping-text span:nth-child(2) { animation-delay: 0.2s; }
-  .jumping-text span:nth-child(3) { animation-delay: 0.3s; }
-  .jumping-text span:nth-child(4) { animation-delay: 0.4s; }
-  .jumping-text span:nth-child(5) { animation-delay: 0.5s; }
-  .jumping-text span:nth-child(6) { animation-delay: 0.6s; }
-  .jumping-text span:nth-child(7) { animation-delay: 0.7s; }
-
-  /* Define the 'bounce' animation */
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateY(0); /* Start and end position (original) */
-    }
-    50% {
-      transform: translateY(-20px); /* Move 20px up at the midpoint */
-    }
-  }
-</style>
-
-
-<style>
-  .jumping-text span {
-    position: relative; /* Needed for positioning the jump */
-    display: inline-block; /* Allows each letter to be a separate block */
-    animation: bounce 0.6s ease-in-out infinite alternate; /* Apply the animation */
-    font-size: 2rem;
-  }
-
-  /* Stagger the animation delay for each letter */
-  .jumping-text span:nth-child(1) { animation-delay: 0.1s; }
-  .jumping-text span:nth-child(2) { animation-delay: 0.2s; }
-  .jumping-text span:nth-child(3) { animation-delay: 0.3s; }
-  .jumping-text span:nth-child(4) { animation-delay: 0.4s; }
-  .jumping-text span:nth-child(5) { animation-delay: 0.5s; }
-  .jumping-text span:nth-child(6) { animation-delay: 0.6s; }
-  .jumping-text span:nth-child(7) { animation-delay: 0.7s; }
-
-  /* Define the 'bounce' animation */
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateY(0); /* Start and end position (original) */
-    }
-    50% {
-      transform: translateY(-20px); /* Move 20px up at the midpoint */
-    }
-  }
-</style>
-            </div>
+                <div style="margin-top: 40px; text-align: center;">
+                    <button class="btn" onclick="window.open('https://wa.me/919095869474'),_blank">Contact Us on WhatsApp</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container contact-container">
-            <div class="contact-info">
-                <h2>Ongoing projects are....</h2>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>International Journal and Research & Educational studies</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span><span>Eductation Website</span>
-                    </div>
-                        <!-- <div class="contact-item"> -->
-                        <i class="fas fa-envelope"></i>
-                        <span style="position: relative;color: #024205;">Will publish the website Sooner..</span>
-                    </div>
-                    <li style="color: rgb(9, 9, 168);"style="text-align:left;"><marquee> All Rights Reserved @ Excel Technology - +91-9095869474</marquee></li>
-                </div>
-            </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Excel Technology. All Rights Reserved.</p>
+            <p>Power BI & Excel Automation Services</p>
         </div>
-    </section> 
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/919095869474" target="_blank" class="float-wa" title="Chat on WhatsApp">
+        💬
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // --- MOBILE MENU TOGGLE ---
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // --- HERO CANVAS ANIMATION (Retained and Cleaned) ---
+        const canvas = document.getElementById('gridCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        let width, height;
+        const cellSize = 40; 
+        const activeCells = []; 
+        const excelGreen = 'rgba(33, 195, 88, 0.8)'; // Updated to match accent color
+        const excelText = '#ffffff';
+        
+        function resize() {
+            width = canvas.parentElement.offsetWidth;
+            height = canvas.parentElement.offsetHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+        
+        window.addEventListener('resize', resize);
+        resize();
+
+        function getRandomData() {
+            const types = [
+                () => '$' + (Math.random() * 1000).toFixed(2),
+                () => (Math.random() * 100).toFixed(1) + '%',
+                () => Math.floor(Math.random() * 10000).toLocaleString(),
+                () => 'SUM(' + Math.floor(Math.random() * 100) + ':' + Math.floor(Math.random() * 100) + ')'
+            ];
+            return types[Math.floor(Math.random() * types.length)]();
+        }
+
+        class ActiveCell {
+            constructor() {
+                this.col = Math.floor(Math.random() * (width / cellSize));
+                this.row = Math.floor(Math.random() * (height / cellSize));
+                this.x = this.col * cellSize;
+                this.y = this.row * cellSize;
+                this.text = getRandomData();
+                this.life = 0; 
+                this.maxLife = 100 + Math.random() * 100; 
+                this.state = 'in'; 
+                this.opacity = 0;
+            }
+
+            update() {
+                if (this.state === 'in') {
+                    this.opacity += 0.05;
+                    if (this.opacity >= 1) {
+                        this.opacity = 1;
+                        this.state = 'stay';
+                    }
+                } else if (this.state === 'stay') {
+                    this.life++;
+                    if (this.life > this.maxLife) {
+                        this.state = 'out';
+                    }
+                } else if (this.state === 'out') {
+                    this.opacity -= 0.02;
+                }
+            }
+
+            draw(ctx) {
+                if (this.opacity <= 0) return;
+
+                ctx.save();
+                ctx.globalAlpha = this.opacity;
+                ctx.fillStyle = excelGreen;
+                ctx.fillRect(this.x + 1, this.y + 1, cellSize - 2, cellSize - 2);
+                
+                ctx.fillStyle = excelText;
+                ctx.font = '10px sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(this.text, this.x + cellSize/2, this.y + cellSize/2);
+                ctx.restore();
+            }
+        }
+
+        function drawGrid() {
+            ctx.strokeStyle = 'rgba(102, 126, 234, 0.1)'; // Faint blue grid
+            ctx.lineWidth = 1;
+
+            for (let x = 0; x <= width; x += cellSize) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, height);
+                ctx.stroke();
+            }
+
+            for (let y = 0; y <= height; y += cellSize) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(width, y);
+                ctx.stroke();
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            drawGrid();
+
+            if (activeCells.length < 15 && Math.random() < 0.1) {
+                activeCells.push(new ActiveCell());
+            }
+
+            for (let i = activeCells.length - 1; i >= 0; i--) {
+                const cell = activeCells[i];
+                cell.update();
+                cell.draw(ctx);
+
+                if (cell.state === 'out' && cell.opacity <= 0) {
+                    activeCells.splice(i, 1);
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body>
+</html>
