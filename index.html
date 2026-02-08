@@ -1,33 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8991230891170694"
-     crossorigin="anonymous"></script>
+    <!-- AdSense & Analytics Scripts (Preserved) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8991230891170694" crossorigin="anonymous"></script>
+    <meta name="google-site-verification" content="M5XZAAHYNI0IyvUQAsACkEpUmHVQblnRrHYrWqGM1TQ" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N365F9Z6PS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N365F9Z6PS');
+    </script>
 
-<meta name="google-site-verification" content="M5XZAAHYNI0IyvUQAsACkEpUmHVQblnRrHYrWqGM1TQ" />
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N365F9Z6PS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-N365F9Z6PS');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Affordable Power BI dashboards, Excel automation and low-cost business websites. Automate reports, save time and improve business decisions.">
     <title>Power BI Dashboard & Excel Automation Services | Excel Technology</title>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         /* --- RESET & VARIABLES --- */
         :root {
             --primary: #667eea;
+            --primary-dark: #5a6fd6;
             --secondary: #764ba2;
             --accent: #21c358;
+            --accent-hover: #1aa846;
             --dark-bg: #0b0d17;
-            --card-bg: rgba(20, 25, 40, 0.7);
+            --light-bg: #f8f9fc;
             --text-light: #ffffff;
-            --text-gray: #b0b0b0;
-            --tech-grid: rgba(102, 126, 234, 0.07);
+            --text-dark: #2d3748;
+            --text-gray: #4a5568;
+            --card-light: #ffffff;
+            --neon-blue: #00f2ff;
         }
 
         * {
@@ -41,35 +48,53 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Tech Background: Dark Base + Grid Pattern */
-            background-color: var(--dark-bg);
-            background-image: 
-                linear-gradient(var(--tech-grid) 1px, transparent 1px),
-                linear-gradient(90deg, var(--tech-grid) 1px, transparent 1px);
-            background-size: 40px 40px;
-            color: var(--text-light);
+            font-family: 'Segoe UI', 'Roboto', Helvetica, Arial, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Ambient background glow animation */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(118, 75, 162, 0.15) 0%, transparent 70%);
-            z-index: -1;
-            pointer-events: none;
-        }
-
+        /* --- UTILITIES --- */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 35px;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
         }
 
         /* --- NAVIGATION --- */
@@ -77,7 +102,7 @@
             background: rgba(11, 13, 23, 0.95);
             backdrop-filter: blur(10px);
             padding: 15px 0;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -96,12 +121,35 @@
             gap: 15px;
         }
 
+        /* --- ANIMATED LOGO STYLES --- */
         .logo-img {
-            width: 45px;
-            height: 45px;
-            border-radius: 8px; /* Slight tech edge */
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
             object-fit: cover;
             border: 2px solid var(--primary);
+            /* Initial glow and animation */
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+            animation: logo-pulse-glow 3s infinite ease-in-out;
+        }
+
+        /* Logo Animation Keyframes */
+        @keyframes logo-pulse-glow {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(102, 126, 234, 0.4);
+                border-color: var(--primary);
+            }
+            50% {
+                transform: scale(1.08); /* Slight zoom */
+                box-shadow: 0 0 30px rgba(0, 242, 255, 0.8); /* Bright Cyan Glow */
+                border-color: var(--neon-blue);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(102, 126, 234, 0.4);
+                border-color: var(--primary);
+            }
         }
 
         .logo {
@@ -120,26 +168,18 @@
             list-style: none;
         }
 
-        /* Tech Style Menu Buttons */
-        .nav-links li {
-            background: rgba(255,255,255,0.05);
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .nav-links li:hover {
-            background: rgba(102, 126, 234, 0.2);
-            border-color: var(--primary);
-        }
-
         .nav-links a {
             color: #fff;
             text-decoration: none;
             font-weight: 500;
-            padding: 8px 20px;
-            display: block;
+            padding: 8px 15px;
             font-size: 0.95rem;
+            border-radius: 20px;
+            transition: background 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.1);
         }
 
         .mobile-menu {
@@ -149,16 +189,23 @@
             color: var(--primary);
         }
 
-        /* --- HERO SECTION (Canvas Animation) --- */
+        /* --- HERO SECTION (Dark Tech) --- */
         .hero-section {
             position: relative;
-            min-height: 80vh; /* Only Hero needs height, others auto */
+            min-height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 60px 20px;
+            padding: 100px 20px;
             overflow: hidden;
+            background-color: var(--dark-bg);
+            /* Tech Background Grid */
+            background-image: 
+                linear-gradient(rgba(102, 126, 234, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(102, 126, 234, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: var(--text-light);
         }
 
         canvas#gridCanvas {
@@ -175,24 +222,24 @@
             position: relative;
             z-index: 2;
             max-width: 900px;
+            animation: fadeIn Up 1s ease-out;
         }
 
         .hero-title {
             font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            /* Tech Text Glow */
-            color: #fff;
-            text-shadow: 0 0 15px rgba(0, 207, 255, 0.5);
+            line-height: 1.2;
+            background: linear-gradient(to right, #fff, #00CFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-subtitle {
             color: #00CFFF;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 300;
-            letter-spacing: 5px;
+            letter-spacing: 4px;
             margin-bottom: 30px;
             text-transform: uppercase;
         }
@@ -200,59 +247,155 @@
         .hero-details p {
             font-size: 1.1rem;
             margin: 5px 0;
-            color: var(--text-gray);
+            color: #cbd5e0;
         }
 
-        .hero-details i { color: var(--accent); margin-right: 5px; }
-
-        /* Marquee Replacement (CSS Animation) */
-        .notification-bar {
+        /* --- NEW HERO TAGS DESIGN --- */
+        .hero-tag-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Increased gap */
             margin-top: 40px;
-            background: rgba(33, 195, 88, 0.15);
+            flex-wrap: wrap;
+        }
+
+        .hero-tag {
+            /* Glassmorphism Base */
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            
+            /* Layout */
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            
+            /* Typography */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            
+            /* Initial Shadow */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            
+            /* Animation: Float with Staggered Delays */
+            animation: float 6s ease-in-out infinite;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Stagger the floating animation */
+        .hero-tag:nth-child(1) { animation-delay: 0s; border-color: rgba(102, 126, 234, 0.3); }
+        .hero-tag:nth-child(2) { animation-delay: 2s; border-color: rgba(33, 195, 88, 0.3); }
+        .hero-tag:nth-child(3) { animation-delay: 4s; border-color: rgba(0, 207, 255, 0.3); }
+
+        /* Hover Effects for Tags */
+        .hero-tag:hover {
+            transform: translateY(-8px) scale(1.05);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #fff;
+            box-shadow: 0 0 25px rgba(0, 242, 255, 0.6); /* Neon glow on hover */
+        }
+
+        .hero-tag i {
+            color: var(--accent);
+            font-size: 1.1em;
+            transition: transform 0.3s;
+        }
+        
+        .hero-tag:hover i {
+            transform: rotate(15deg) scale(1.2);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Notification Bar */
+        .notification-bar {
+            margin-top: 60px;
+            background: linear-gradient(90deg, rgba(33, 195, 88, 0.1), rgba(33, 195, 88, 0.2));
             border: 1px solid var(--accent);
-            border-radius: 8px;
-            overflow: hidden;
-            padding: 10px 0;
-            white-space: nowrap;
+            border-radius: 12px;
+            padding: 15px;
             position: relative;
+            overflow: hidden;
+            animation: slideInUp 1s ease-out 0.5s backwards; /* Entrance animation */
+        }
+        
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .notification-text {
-            display: inline-block;
-            padding-left: 100%;
-            animation: scroll-left 15s linear infinite;
             color: var(--accent);
-            font-weight: bold;
-            font-size: 1.2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
-        @keyframes scroll-left {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
-        }
-
-        /* --- SECTIONS GENERAL --- */
+        /* --- SECTION STYLES (Variations) --- */
         section {
-            /* Removed min-height: 100vh to fix spacing gaps. 
-               Now sections grow with content. */
-            padding: 80px 20px; 
+            padding: 100px 20px;
             position: relative;
         }
 
-        /* Alternate section background slightly to differentiate */
-        section:nth-of-type(even) {
-            background: rgba(0,0,0,0.2);
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
         }
 
         .section-title {
-            text-align: center;
             font-size: 2.5em;
-            margin-bottom: 50px;
-            color: white;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 15px;
             position: relative;
             display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
+        }
+        
+        /* Light Section Specifics */
+        .section-light {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+        }
+        
+        .section-light .section-title {
+            color: var(--text-dark);
+        }
+
+        /* Dark/Gradient Section Specifics */
+        .section-dark {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: white;
+        }
+
+        .section-dark .section-title {
+            color: white;
+        }
+        
+        .section-dark .section-title::after {
+            background: linear-gradient(to right, var(--accent), var(--primary));
+        }
+
+        /* Full Image Background Section */
+        .section-image-bg {
+            background: linear-gradient(rgba(11, 13, 23, 0.85), rgba(11, 13, 23, 0.9)), 
+                        url('https://picsum.photos/seed/office/1920/1080');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: white;
         }
 
         .section-title::after {
@@ -260,41 +403,53 @@
             display: block;
             width: 60px;
             height: 4px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: var(--primary);
             margin: 10px auto 0;
             border-radius: 2px;
         }
 
-        /* --- CARDS (Glassmorphism Tech Style) --- */
-        .service-card, .benefit-card, .pricing-card, .testimonial-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-            border-radius: 16px;
-            padding: 30px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-        }
-
-        .service-card:hover, .benefit-card:hover, .pricing-card:hover, .testimonial-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3), 0 0 15px rgba(102, 126, 234, 0.2);
-            border-color: rgba(102, 126, 234, 0.4);
-        }
-
-        /* --- SERVICES GRID --- */
+        /* --- SERVICES (Light Theme) --- */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
+        .service-card {
+            background: var(--card-light);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-top: 5px solid transparent;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-top-color: var(--primary);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            background: rgba(102, 126, 234, 0.1);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .service-card h3 {
-            color: #00CFFF;
-            font-size: 1.4em;
-            margin-bottom: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 10px;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: var(--text-dark);
         }
 
         .service-card ul {
@@ -302,204 +457,313 @@
         }
 
         .service-card li {
-            padding: 8px 0;
-            color: #ddd;
-            border-bottom: 1px dashed rgba(255,255,255,0.1);
+            padding: 10px 0;
+            color: var(--text-gray);
+            border-bottom: 1px dashed #eee;
+            font-size: 0.95rem;
         }
         
         .service-card li:before {
-            content: "▹";
-            color: var(--primary);
+            content: "\f00c"; /* FontAwesome Check */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--accent);
             margin-right: 10px;
         }
 
-        /* --- INDUSTRIES --- */
+        /* --- ZIG ZAG LAYOUT (Why Choose Us) --- */
+        .zig-zag-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+        
+        .zig-zag-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .zz-content {
+            flex: 1;
+        }
+
+        .zz-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .zz-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            transition: transform 0.5s ease;
+        }
+
+        .zz-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .zz-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .zz-content p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- INDUSTRIES (Gradient Colorful) --- */
+        .industries-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .industries-section .section-title {
+            color: white;
+        }
+        
+        .industries-section .section-title::after {
+            background: white;
+        }
+
         .industries-container {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
             justify-content: center;
-            margin-bottom: 50px;
         }
 
         .industry-tag {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
             color: #fff;
-            padding: 10px 25px;
-            border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.1);
-            font-weight: 500;
+            padding: 12px 30px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.3);
+            font-weight: 600;
             transition: all 0.3s;
+            font-size: 1.1rem;
         }
 
         .industry-tag:hover {
-            background: var(--primary);
-            border-color: var(--primary);
-            box-shadow: 0 0 15px rgba(102, 126, 234, 0.5);
+            background: white;
+            color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
-        /* --- BENEFITS --- */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            text-align: center;
-        }
-
-        .benefit-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            color: var(--accent);
-        }
-
-        /* --- PRICING --- */
+        /* --- PRICING (Dark Theme) --- */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 30px;
         }
 
         .pricing-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
             text-align: center;
-            background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
         }
 
         .pricing-card h3 {
+            font-size: 1.4em;
             color: #00CFFF;
             margin-bottom: 15px;
         }
 
         .price {
-            font-size: 2.2em;
+            font-size: 2.5em;
             color: white;
-            font-weight: bold;
+            font-weight: 800;
             margin: 20px 0;
-            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+        
+        .price span {
+            font-size: 0.4em;
+            font-weight: 400;
+            color: #aaa;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
         }
 
         .pricing-features li {
-            padding: 10px 0;
-            color: #bbb;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: #ddd;
+            display: flex;
+            align-items: center;
         }
         
-        /* Highlight 'Get Started' buttons */
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 35px;
-            background: linear-gradient(90deg, var(--secondary), var(--primary));
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        .pricing-features li i {
+            color: var(--accent);
+            margin-right: 10px;
         }
 
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-        }
-
-        /* --- TESTIMONIALS --- */
+        /* --- TESTIMONIALS (Light Grey) --- */
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
-        .testimonial-text {
-            color: #ddd;
-            font-style: italic;
-            margin-bottom: 20px;
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             position: relative;
         }
         
-        .testimonial-text::before {
-            content: "“";
-            font-size: 3em;
-            color: var(--primary);
-            opacity: 0.3;
+        .testimonial-card::before {
+            content: "\201C";
+            font-family: serif;
+            font-size: 5rem;
+            color: #f0f0f0;
             position: absolute;
             top: -20px;
-            left: -10px;
+            left: 20px;
+            z-index: 0;
+        }
+
+        .testimonial-text {
+            color: var(--text-dark);
+            font-style: italic;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
         }
 
         .testimonial-author {
             display: flex;
             align-items: center;
             gap: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         .author-avatar {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: white;
-        }
-
-        /* --- ABOUT --- */
-        .about-content {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 40px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .about-content h3 {
-            color: var(--primary);
-            margin-top: 25px;
-            margin-bottom: 15px;
-        }
-
-        .about-content ul {
-            list-style: none;
+            background: #eee;
+            overflow: hidden;
         }
         
-        .about-content li::before {
-            content: "✓";
-            color: var(--accent);
-            margin-right: 10px;
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
+
+        .author-info h4 { margin: 0; font-size: 1rem; }
+        .author-info p { margin: 0; font-size: 0.85rem; color: #777; }
 
         /* --- FOOTER --- */
         footer {
-            background: rgba(0,0,0,0.4);
-            padding: 40px 20px;
+            background: #05060a;
+            padding: 60px 20px 20px;
+            color: #888;
+            border-top: 1px solid #1f2937;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
             text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 20px;
+            border-top: 1px solid #1f2937;
         }
 
         /* --- FLOATING WHATSAPP --- */
         .float-wa {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 30px;
+            right: 30px;
             background: #25D366;
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            font-size: 30px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            font-size: 35px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
             z-index: 2000;
             transition: transform 0.3s;
         }
 
         .float-wa:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
+        }
+        
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
         }
 
         /* --- RESPONSIVE --- */
@@ -512,13 +776,33 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: rgba(11, 13, 23, 0.98);
+                background: #0b0d17;
                 padding: 20px;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
+                text-align: center;
             }
             .nav-links.active { display: flex; }
             .mobile-menu { display: block; }
-            .nav-links li { text-align: center; margin-bottom: 10px; }
+            
+            .zig-zag-row, .zig-zag-row:nth-child(even) {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .section-image-bg {
+                background-attachment: scroll; /* Better for mobile perf */
+            }
+            
+            .hero-tag-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .hero-tag {
+                width: 100%;
+                justify-content: center;
+                max-width: 300px;
+            }
         }
     </style>
 </head>
@@ -528,23 +812,23 @@
     <nav>
         <div class="container">
             <div class="logo-container">
-                <!-- Using a generic placeholder icon styled with CSS -->
-                 <img src="Images/Excel_Logo.png" alt="Excel Technology Logo" class="logo-img" style="width:60px;height:80px;">
+                 <!-- Added onerror handler in case local image fails -->
+                 <img src="Images/Excel_Logo.png" alt="Excel Technology Logo" class="logo-img" onerror="this.style.display='none'">
                 <div class="logo">Excel Technology</div>
             </div>
             <div class="mobile-menu" onclick="toggleMenu()">☰</div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#why-us">Why Us</a></li>
                 <li><a href="#industries">Industries</a></li>
                 <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#about">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section with Canvas Animation -->
+    <!-- Hero Section (Dark Tech + Canvas) -->
     <section id="home" class="hero-section">
         <canvas id="gridCanvas"></canvas>
         <div class="container hero-content">
@@ -552,219 +836,195 @@
             <div class="hero-subtitle">POWER BI & EXCEL AUTOMATION</div>
             
             <div class="hero-details">
-                <p style="color: #00ffcc; font-size: 1.2rem;">
-                    Save 10–30 hours every month by replacing manual Excel work with smart dashboards
-                </p>
-                <p style="color: #ddd;">
-                    ✔ Automated Power BI Dashboards<br>
-                    ✔ Excel VBA & Report Automation<br>
-                    ✔ Real-time Business Insights<br>
-                    ✔ Low-Cost Effeciance Websites
-                </p>
-                <p style="color: #ffc107; margin-top: 15px;">
-                    📍 INDIA | 📞 +91 9095869474 | 📧 info@exceltechnolgy.info
+                <p style="font-size: 1.25rem; color: #fff; max-width: 700px; margin: 0 auto 20px;">
+                    Stop wasting hours on manual Excel work. We build smart dashboards that save you <strong>10–30 hours every month</strong>.
                 </p>
             </div>
 
-            <div style="margin-top:30px;">
-                <a href="https://wa.me/919095869474" class="btn">Get Free Dashboard Demo</a>
+            <!-- IMPROVED HERO TAGS -->
+            <div class="hero-tag-container">
+                <div class="hero-tag"><i class="fas fa-chart-line"></i> Power BI Dashboards</div>
+                <div class="hero-tag"><i class="fas fa-file-excel"></i> Excel VBA Automation</div>
+                <div class="hero-tag"><i class="fas fa-globe"></i> Web Development</div>
             </div>
-            <h2>Power BI & Excel Automation Services for Businesses</h2>
-            <p>
-            We provide affordable Power BI dashboard development and Excel automation services
-            to help businesses reduce manual reporting and improve decision-making.
-            </p>
 
-            <!-- Tech Scrolling Notification -->
+            <div style="margin-top: 40px;">
+                <a href="https://wa.me/919095869474" class="btn">Get Free Demo</a>
+            </div>
+
             <div class="notification-bar">
-                <div class="notification-text" style="color: yellow;">
-                    Hurry Up! 🔥 We provide the lowest price Websites starting from 3,500/ . Special offer on Power BI Dashboards this month!
+                <div class="notification-text">
+                    <i class="fas fa-fire"></i> Limited Offer: Websites starting from ₹3,500. Special discounts on Power BI Dashboards this month!
                 </div>
             </div>
         </div>
     </section>
 
-
-    <!-- Services Section -->
-    <section id="services">
+    <!-- Services Section (Clean Light Theme) -->
+    <section id="services" class="section-light fade-in-section">
         <div class="container">
-            <h2 class="section-title">Our Services</h2>
+            <div class="section-header">
+                <h2 class="section-title">Our Services</h2>
+                <p>Comprehensive data solutions tailored to grow your business efficiency.</p>
+            </div>
+            
             <div class="services-grid">
+                <!-- Service 1 -->
                 <div class="service-card">
-                    <h3>📊 Power BI Dashboards</h3>
+                    <div class="service-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h3>Power BI Dashboards</h3>
                     <ul>
-                        <li>Interactive business dashboards</li>
-                        <li>Sales, Finance & Operations tracking</li>
-                        <li>Real-time KPIs & performance metrics</li>
-                        <li>Decision-ready visuals for management</li>
-                        <li>Mobile & desktop friendly dashboards</li>
+                        <li>Interactive Business Insights</li>
+                        <li>Sales & Finance Tracking</li>
+                        <li>Real-time KPIs</li>
+                        <li>Mobile & Desktop Friendly</li>
                     </ul>
                 </div>
+                <!-- Service 2 -->
                 <div class="service-card">
-                    <h3>📈 Excel Automation & VBA</h3>
+                    <div class="service-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Excel Automation</h3>
                     <ul>
-                        <li>Fully automated reports (daily / weekly / monthly)</li>
-                        <li>Excel VBA macros to reduce manual work</li>
-                        <li>One-click report generation</li>
-                        <li>Error-free data processing</li>
-                        <li>Custom Excel tools for your business</li>
+                        <li>VBA Macros for Repetitive Tasks</li>
+                        <li>One-click Report Generation</li>
+                        <li>Invoice & Inventory Automation</li>
+                        <li>Error-free Data Processing</li>
                     </ul>
                 </div>
-                    <div class="service-card">
-                    <h3>🌐 Low-Cost Efficient Websites</h3>
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Web Development</h3>
                     <ul>
-                        <li>Professional business websites at affordable cost</li>
-                        <li>Fast-loading & mobile-friendly design</li>
-                        <li>SEO-optimized structure for better visibility</li>
-                        <li>Contact forms, WhatsApp & enquiry integration</li>
-                        <li>Easy maintenance & basic support included</li>
+                        <li>Professional Business Sites</li>
+                        <li>Fast & Mobile Responsive</li>
+                        <li>SEO-Optimized Structure</li>
+                        <li>WhatsApp Integration</li>
                     </ul>
                 </div>
-
+                <!-- Service 4 -->
                 <div class="service-card">
-                    <h3>🔧 Data & Analytics Support</h3>
+                    <div class="service-icon"><i class="fas fa-database"></i></div>
+                    <h3>Data Support</h3>
                     <ul>
-                        <li>Data cleaning & preparation</li>
-                        <li>Multiple data source integration</li>
-                        <li>KPI design & business insights</li>
-                        <li>End-to-end analytics solutions</li>
-                        <li>Ongoing dashboard & report support</li>
+                        <li>Data Cleaning & Prep</li>
+                        <li>Multiple Source Integration</li>
+                        <li>Custom KPI Design</li>
+                        <li>End-to-end Analytics</li>
                     </ul>
                 </div>
             </div>
         </div>
-
-
     </section>
 
-            <section>
+    <!-- Why Choose Us (Zig Zag Layout with Images) -->
+    <section id="why-us" class="fade-in-section">
         <div class="container">
-            <h2 class="section-title">Problems We Solve</h2>
-            <div class="benefits-grid">
-            <div class="benefit-card">
-                <h3>❌ Manual Excel Reporting</h3>
-                <p>We automate repetitive Excel work and eliminate copy-paste errors.</p>
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Our Team?</h2>
+                <p>We combine technical expertise with business understanding to deliver real value.</p>
             </div>
-            <div class="benefit-card">
-                <h3>❌ No Business Visibility</h3>
-                <p>Dashboards that show sales, profit & performance in real-time.</p>
+
+            <!-- Row 1 -->
+            <div class="zig-zag-row">
+                <div class="zz-content">
+                    <h3>Save Time Every Week</h3>
+                    <p>Manual data entry and copy-pasting reports are outdated. Our automation solutions turn hours of work into seconds, allowing your team to focus on decision-making rather than data crunching.</p>
+                    <a href="#pricing" class="btn btn-outline">See Plans</a>
+                </div>
+                <div class="zz-image">
+                    <img src="https://picsum.photos/seed/analytics/600/400" alt="Analytics Dashboard">
+                </div>
             </div>
-            <div class="benefit-card">
-                <h3>❌ Time-Consuming Analysis</h3>
-                <p>Reduce hours of work into minutes using automation.</p>
+
+            <!-- Row 2 -->
+            <div class="zig-zag-row">
+                <div class="zz-content">
+                    <h3>Affordable for Every Business</h3>
+                    <p>Enterprise-level software shouldn't cost a fortune. We offer competitive pricing designed for small businesses, rice mills, traders, and retailers without compromising on quality.</p>
+                    <ul style="list-style:none; margin-top:10px; color:#555;">
+                        <li><i class="fas fa-check" style="color:var(--accent)"></i> Lowest Price Guarantee</li>
+                        <li><i class="fas fa-check" style="color:var(--accent)"></i> No Hidden Fees</li>
+                    </ul>
+                </div>
+                <div class="zz-image">
+                    <img src="https://picsum.photos/seed/meeting/600/400" alt="Business Meeting">
+                </div>
             </div>
-            <div class="benefit-card">
-                <h3>❌ Data Confusion</h3>
-                <p>Clean, structured data you can trust for decisions.</p>
-            </div>
+
+            <!-- Row 3 -->
+            <div class="zig-zag-row">
+                <div class="zz-content">
+                    <h3>Tamil & English Support</h3>
+                    <p>Communication is key. We support our clients in both Tamil and English, ensuring you completely understand how your new dashboards and tools work before we hand them over.</p>
+                </div>
+                <div class="zz-image">
+                    <img src="https://picsum.photos/seed/support/600/400" alt="Customer Support">
+                </div>
             </div>
         </div>
-        </section>
+    </section>
 
-    <!-- Industries Section -->
-    <section id="industries">
+    <!-- Industries (Colorful Gradient) -->
+    <section id="industries" class="industries-section fade-in-section">
         <div class="container">
             <h2 class="section-title">Industries We Serve</h2>
             <div class="industries-container">
-                <div class="industry-tag">🛒 Retail</div>
-                <div class="industry-tag">🌾 Rice Mills</div>
-                <div class="industry-tag">💼 Traders</div>
-                <div class="industry-tag">🏥 Hospitals</div>
-                <div class="industry-tag">🎓 Education</div>
-                <div class="industry-tag">🏢 Agencies</div>
-                <div class="industry-tag">💰 Finance</div>
-                <div class="industry-tag">🚚 Logistics</div>
-                <div class="industry-tag">🏭 Manufacturing</div>
-                <div class="industry-tag">🏪 Small Businesses</div>
-            </div>
-
-            <h2 class="section-title">Why Choose Our Team</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">⚡</div>
-                    <h3>Quick Delivery</h3>
-                    <p>Fast turnaround times for your projects</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎨</div>
-                    <h3>Dashboard Samples</h3>
-                    <p>View examples before you decide</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">💰</div>
-                    <h3>Pocket-Friendly Pricing</h3>
-                    <p>Affordable solutions for all businesses</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎯</div>
-                    <h3>Custom Solutions</h3>
-                    <p>Tailored to your specific needs</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🗣️</div>
-                    <h3>Tamil & English Support</h3>
-                    <p>Communicate in your preferred language</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">✅</div>
-                    <h3>Free Demo Available</h3>
-                    <p>Try before you commit</p>
-                </div>
+                <div class="industry-tag">Retail & E-commerce</div>
+                <div class="industry-tag">Rice Mills</div>
+                <div class="industry-tag">Traders & Distribution</div>
+                <div class="industry-tag">Healthcare</div>
+                <div class="industry-tag">Education</div>
+                <div class="industry-tag">Manufacturing</div>
+                <div class="industry-tag">Logistics</div>
+                <div class="industry-tag">Finance & Tax</div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing">
+    <!-- Pricing (Dark Premium) -->
+    <section id="pricing" class="section-dark fade-in-section">
         <div class="container">
-            <h2 class="section-title">Pricing Plans</h2>
+            <div class="section-header">
+                <h2 class="section-title">Transparent Pricing</h2>
+                <p style="color: #a0aec0;">Choose the plan that fits your needs. No hidden costs.</p>
+            </div>
+            
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <h3>One-Page Dashboard</h3>
-                    <div class="price">₹2,000 - ₹4,000</div>
+                    <h3>Starter Dashboard</h3>
+                    <div class="price">₹2k - ₹4k</div>
                     <ul class="pricing-features">
-                        <li>✓ Single dashboard page</li>
-                        <li>✓ Basic visualizations</li>
-                        <li>✓ Data integration</li>
-                        <li>✓ Post-delivery support</li>
-                        <li>✓ Dashboard explanation session</li>
-                        <li>✓ Free minor changes</li>
+                        <li><i class="fas fa-check-circle"></i> Single Page View</li>
+                        <li><i class="fas fa-check-circle"></i> Basic Visuals</li>
+                        <li><i class="fas fa-check-circle"></i> Data Integration</li>
+                        <li><i class="fas fa-check-circle"></i> Minor Tweaks</li>
                     </ul>
                     <button class="btn" onclick="window.open('https://razorpay.me/@Vanithavijayenterprises'),_blank">Get Started</button>
                 </div>
-                <div class="pricing-card">
-                    <h3>Advanced Dashboard</h3>
-                    <div class="price">₹6,000 - ₹12,000</div>
+                
+                <!-- Highlighted Card -->
+                <div class="pricing-card" style="border: 2px solid var(--primary); background: rgba(102, 126, 234, 0.1);">
+                    <div style="position:absolute; top:0; left:50%; transform:translate(-50%, -50%); background:var(--primary); padding:5px 15px; border-radius:20px; font-size:0.8rem; font-weight:bold;">POPULAR</div>
+                    <h3>Advanced Analytics</h3>
+                    <div class="price">₹6k - ₹12k</div>
                     <ul class="pricing-features">
-                        <li>✓ Multiple pages</li>
-                        <li>✓ Advanced analytics</li>
-                        <li>✓ Custom KPIs</li>
-                        <li>✓ Interactive features</li>
-                        <li>✓ Life Time support</li>
+                        <li><i class="fas fa-check-circle"></i> Multiple Pages</li>
+                        <li><i class="fas fa-check-circle"></i> Custom KPIs & DAX</li>
+                        <li><i class="fas fa-check-circle"></i> Interactive Filters</li>
+                        <li><i class="fas fa-check-circle"></i> Lifetime Support</li>
                     </ul>
                     <button class="btn" onclick="window.open('https://razorpay.me/@Vanithavijayenterprises'),_blank">Get Started</button>
                 </div>
+
                 <div class="pricing-card">
                     <h3>Excel Automation</h3>
-                    <div class="price">₹1,500 - ₹6,000</div>
+                    <div class="price">₹1.5k - ₹6k</div>
                     <ul class="pricing-features">
-                        <li>✓ VBA Macros</li>
-                        <li>✓ Report automation</li>
-                        <li>✓ Data processing</li>
-                        <li>✓ Custom templates</li>
-                        <li>✓ Life Time support</li>
-                    </ul>
-                    <button class="btn" onclick="window.open('https://razorpay.me/@Vanithavijayenterprises'),_blank">Get Started</button>
-                </div>
-                <div class="pricing-card">
-                    <h3>Monthly Support</h3>
-                    <div class="price">₹3,000 - ₹10,000</div>
-                    <ul class="pricing-features">
-                        <li>✓ Ongoing maintenance</li>
-                        <li>✓ Regular updates</li>
-                        <li>✓ Priority support</li>
-                        <li>✓ Data refresh</li>
-                        <li>✓ Unlimited changes</li>
+                        <li><i class="fas fa-check-circle"></i> VBA Macros</li>
+                        <li><i class="fas fa-check-circle"></i> Auto-Report Gen</li>
+                        <li><i class="fas fa-check-circle"></i> User Forms</li>
+                        <li><i class="fas fa-check-circle"></i> Documentation</li>
                     </ul>
                     <button class="btn" onclick="window.open('https://razorpay.me/@Vanithavijayenterprises'),_blank">Get Started</button>
                 </div>
@@ -772,113 +1032,123 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials">
+    <!-- Testimonials (Clean Light) -->
+    <section id="testimonials" class="section-light fade-in-section">
         <div class="container">
-            <h2 class="section-title">What Our Clients Say</h2>
+            <h2 class="section-title">Client Stories</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <p class="testimonial-text">"Excel Technology transformed our sales tracking completely. The Power BI dashboard gives us real-time insights that helped increase our revenue."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">RS</div>
+                        <div class="author-avatar"><img src="https://picsum.photos/seed/user1/100/100" alt="User"></div>
                         <div class="author-info"><h4>Rajesh S.</h4><p>Retail Store Owner</p></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
                     <p class="testimonial-text">"The Excel automation saves us 10 hours every week. No more manual data entry! Highly recommend their services to any business."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">PK</div>
+                        <div class="author-avatar"><img src="https://picsum.photos/seed/user2/100/100" alt="User"></div>
                         <div class="author-info"><h4>Priya K.</h4><p>Finance Manager</p></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
                     <p class="testimonial-text">"Very professional team! They understood our rice mill operations perfectly and created a dashboard that tracks everything."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">MV</div>
+                        <div class="author-avatar"><img src="https://picsum.photos/seed/user3/100/100" alt="User"></div>
                         <div class="author-info"><h4>Murugan V.</h4><p>Rice Mill Owner</p></div>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Quick delivery and excellent support in both Tamil and English. The dashboard helps us make faster decisions for our logistics business."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SK</div>
-                        <div class="author-info"><h4>Senthil K.</h4><p>Logistics Company</p></div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-        <section>
-        <div class="container" style="text-align:left;">
-            <h2 class="section-title">Ready to Automate Your Reports?</h2>
-            <p style="color:#160000; font-size:1.1rem;">
-        </div>  
-        <div class="container" style="text-align:center;">      
-            Get a free consultation and see how automation can save your time and money.
-            <p style="color:#ccc; font-size:1.1rem;">
-            </p>
-            <a href="https://wa.me/919095869474" class="btn">Chat on WhatsApp</a>
-        </div>
-        </section>
-
-    <!-- About Section -->
-    <section id="about">
+    <!-- About / Contact (Image Background Dark Overlay) -->
+    <section id="about" class="section-image-bg fade-in-section">
         <div class="container">
-            <h2 class="section-title">About Us</h2>
-            <div class="about-content">
-                    <p>
-                    We help small and medium businesses reduce manual reporting and gain clear visibility
-                    into their numbers using Power BI dashboards and Excel automation.
-                    </p>
-
-                    <h3>Why Businesses Choose Us</h3>
-                    <ul>
-                        <li>Practical dashboards built for real business use</li>
-                        <li>Automation that saves time every single day</li>
-                        <li>Affordable pricing for small businesses</li>
-                        <li>Clear communication in Tamil & English</li>
-                        <li>Free demo before final commitment</li>
-                    </ul>
-
-                <div style="margin-top: 40px; text-align: center;">
-                    <button class="btn" onclick="window.open('https://wa.me/919095869474'),_blank">Contact Us on WhatsApp</button>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center; background: rgba(0,0,0,0.6); padding: 50px; border-radius: 20px; backdrop-filter: blur(5px);">
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px; color:white;">Ready to Automate Your Business?</h2>
+                <p style="color: #ddd; font-size: 1.2rem; margin-bottom: 30px;">
+                    Get a free consultation and see how automation can save your time and money. We work with clients across India to deliver high-quality, affordable solutions.
+                </p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://wa.me/919095869474" class="btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+                    <a href="tel:+919095869474" class="btn btn-outline" style="border-color:white; color:white;"><i class="fas fa-phone"></i> Call Us Now</a>
                 </div>
+                <p style="margin-top: 20px; color: #aaa;">
+                    <i class="fas fa-map-marker-alt"></i> India &nbsp;|&nbsp; 
+                    <i class="fas fa-envelope"></i> info@exceltechnolgy.info
+                </p>
             </div>
         </div>
     </section>
-
-
 
     <!-- Footer -->
     <footer>
-        <div class="container">
+        <div class="footer-content">
+            <div class="footer-col" style="flex: 2; min-width: 250px;">
+                <div class="logo" style="margin-bottom: 20px;">Excel Technology</div>
+                <p>Empowering businesses with affordable data analytics and automation solutions. Turning raw data into actionable insights.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#industries">Industries</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +91 9095869474</li>
+                    <li><i class="fas fa-envelope"></i> info@exceltechnolgy.info</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
             <p>&copy; 2023 Excel Technology. All Rights Reserved.</p>
-            <p>Power BI & Excel Automation Services</p>
         </div>
     </footer>
 
     <!-- Floating WhatsApp -->
     <a href="https://wa.me/919095869474" target="_blank" class="float-wa" title="Chat on WhatsApp">
-        💬
+        <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Scripts -->
     <script>
-        // --- MOBILE MENU TOGGLE ---
+        // --- MOBILE MENU ---
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('active');
         }
 
-        // --- HERO CANVAS ANIMATION (Retained and Cleaned) ---
+        // --- SCROLL ANIMATION (Intersection Observer) ---
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // --- HERO CANVAS ANIMATION (Tech Data Effect) ---
         const canvas = document.getElementById('gridCanvas');
         const ctx = canvas.getContext('2d');
         
         let width, height;
         const cellSize = 40; 
         const activeCells = []; 
-        const excelGreen = 'rgba(33, 195, 88, 0.8)'; // Updated to match accent color
+        const excelGreen = 'rgba(33, 195, 88, 0.9)'; 
         const excelText = '#ffffff';
         
         function resize() {
@@ -893,10 +1163,10 @@
 
         function getRandomData() {
             const types = [
-                () => '$' + (Math.random() * 1000).toFixed(2),
+                () => '$' + (Math.random() * 1000).toFixed(0),
                 () => (Math.random() * 100).toFixed(1) + '%',
                 () => Math.floor(Math.random() * 10000).toLocaleString(),
-                () => 'SUM(' + Math.floor(Math.random() * 100) + ':' + Math.floor(Math.random() * 100) + ')'
+                () => Math.floor(Math.random() * 100) + '/100'
             ];
             return types[Math.floor(Math.random() * types.length)]();
         }
@@ -909,14 +1179,14 @@
                 this.y = this.row * cellSize;
                 this.text = getRandomData();
                 this.life = 0; 
-                this.maxLife = 100 + Math.random() * 100; 
+                this.maxLife = 60 + Math.random() * 60; 
                 this.state = 'in'; 
                 this.opacity = 0;
             }
 
             update() {
                 if (this.state === 'in') {
-                    this.opacity += 0.05;
+                    this.opacity += 0.08;
                     if (this.opacity >= 1) {
                         this.opacity = 1;
                         this.state = 'stay';
@@ -927,7 +1197,7 @@
                         this.state = 'out';
                     }
                 } else if (this.state === 'out') {
-                    this.opacity -= 0.02;
+                    this.opacity -= 0.05;
                 }
             }
 
@@ -936,11 +1206,13 @@
 
                 ctx.save();
                 ctx.globalAlpha = this.opacity;
+                // Draw Cell Background
                 ctx.fillStyle = excelGreen;
-                ctx.fillRect(this.x + 1, this.y + 1, cellSize - 2, cellSize - 2);
+                ctx.fillRect(this.x + 2, this.y + 2, cellSize - 4, cellSize - 4);
                 
+                // Draw Text
                 ctx.fillStyle = excelText;
-                ctx.font = '10px sans-serif';
+                ctx.font = 'bold 11px sans-serif';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
                 ctx.fillText(this.text, this.x + cellSize/2, this.y + cellSize/2);
@@ -949,7 +1221,8 @@
         }
 
         function drawGrid() {
-            ctx.strokeStyle = 'rgba(102, 126, 234, 0.1)'; // Faint blue grid
+            // Faint grid lines
+            ctx.strokeStyle = 'rgba(102, 126, 234, 0.08)'; 
             ctx.lineWidth = 1;
 
             for (let x = 0; x <= width; x += cellSize) {
@@ -971,7 +1244,7 @@
             ctx.clearRect(0, 0, width, height);
             drawGrid();
 
-            if (activeCells.length < 15 && Math.random() < 0.1) {
+            if (activeCells.length < 12 && Math.random() < 0.08) {
                 activeCells.push(new ActiveCell());
             }
 
